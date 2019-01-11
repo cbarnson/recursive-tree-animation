@@ -15,13 +15,14 @@
  * provides the declaration of the update function
  */
 class Updateable {
-  public:
-   /**
-    * @fn virtual void update(double)
-    * @brief virtual function declaration of update, updates the position of derived objects
-    * @param t the change in time since the last position update
-    */
-   virtual void update(double t) = 0;
+ public:
+  /**
+   * @fn virtual void update(double)
+   * @brief virtual function declaration of update, updates the position of
+   * derived objects
+   * @param t the change in time since the last position update
+   */
+  virtual void update(double t) = 0;
 };
 
 #endif

@@ -16,12 +16,12 @@
  * provides the declaration of the draw function
  */
 class Drawable {
-  public:
-   /**
-    * @fn virtual void draw()
-    * @brief virtual function to draw derived objects
-    */ 
-   virtual void draw() = 0;
+ public:
+  /**
+   * @fn virtual void draw()
+   * @brief virtual function to draw derived objects
+   */
+  virtual void draw() = 0;
 };
 
 #endif

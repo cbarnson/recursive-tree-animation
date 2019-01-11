@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.sty": "latex",
+        "Makefile.am": "makefile",
+        "configure.ac": "makefile",
+        "ctime": "cpp"
+    }
+}

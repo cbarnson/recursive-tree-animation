@@ -2,8 +2,8 @@
 # Cody Barnson
 # makefile for recursive tree animation and rain animation
 
-CC = g++11
-CCFLAGS = -Wall -g -std=c++11 -I/home/lib2720/allegro/include
+CC = g++
+CCFLAGS = -Wall -g -std=c++11 `pkg-config allegro-5 --cflags`
 
 # file names
 TREESOURCE = $(filter-out main-triangle.cc, $(wildcard *.cc))
@@ -11,17 +11,17 @@ TREEOBJECT = $(TREESOURCE:.cc=.o)
 RAINSOURCE = $(filter-out main-line.cc, $(wildcard *.cc))
 RAINOBJECT = $(RAINSOURCE:.cc=.o)
 
-LIBDIR = -L/home/lib2720/allegro/lib
-LNFLAGS = -lallegro -lallegro_primitives
+
+LNFLAGS = -lallegro -lallegro_primitives `pkg-config allegro-5 --libs`
 
 # main target
 all: rain tree
 
 rain: $(RAINOBJECT)
-	$(CC) $(LIBDIR) -o $@ $^ $(LNFLAGS)
+	$(CC)  -o $@ $^ $(LNFLAGS)
 
 tree: $(TREEOBJECT)
-	$(CC) $(LIBDIR) -o $@ $^ $(LNFLAGS)
+	$(CC)  -o $@ $^ $(LNFLAGS)
 
 # pull in dependency info for existing .o files
 -include $(OBJECTS:.o=.d)
@@ -38,4 +38,6 @@ clean :
 
 
 
-
+# LIBDIR = -L/home/lib2720/allegro/lib
+# $(LIBDIR)
+# $(LIBDIR)
