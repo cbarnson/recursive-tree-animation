@@ -1,11 +1,13 @@
 /**
  * @file main-triangle.cc
- * @brief
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @brief Program entry point for the "rain" program.
+ * @version 0.1
+ * @date 2019-01-11
  *
- * @author Cody Barnson
- * @bug no known bugs
+ * @copyright Copyright (c) 2019
+ *
  */
-
 #include <cstdlib>
 #include <ctime>
 #include <list>

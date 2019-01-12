@@ -1,0 +1,70 @@
+\hypertarget{struct_vector}{}\section{Vector Struct Reference}
+\label{struct_vector}\index{Vector@{Vector}}
+
+
+represents the change in position of x and y  
+
+
+
+
+{\ttfamily \#include $<$Vector.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector_a7aa140c1b483251d16df6d256ad22bf7}\label{struct_vector_a7aa140c1b483251d16df6d256ad22bf7}} 
+{\bfseries Vector} (double a=0.\+0, double b=0.\+0)
+\item 
+\mbox{\hyperlink{struct_vector}{Vector}} \mbox{\hyperlink{struct_vector_a4f5f72401cce567d96b50b95109c9bb3}{operator $\ast$}} (double scalar)
+\begin{DoxyCompactList}\small\item\em takes a scalar value and multiplies x and y by it \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector_a133722e00601091cb2075219da5da6e4}\label{struct_vector_a133722e00601091cb2075219da5da6e4}} 
+double {\bfseries x}
+\item 
+\mbox{\Hypertarget{struct_vector_a09a21a140718f234eea348d5058cee0b}\label{struct_vector_a09a21a140718f234eea348d5058cee0b}} 
+double {\bfseries y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+represents the change in position of x and y 
+
+Definition at line 18 of file Vector.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_vector_a4f5f72401cce567d96b50b95109c9bb3}\label{struct_vector_a4f5f72401cce567d96b50b95109c9bb3}} 
+\index{Vector@{Vector}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!Vector@{Vector}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector}{Vector}} Vector\+::operator $\ast$ (\begin{DoxyParamCaption}\item[{double}]{scalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+takes a scalar value and multiplies x and y by it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_vector}{Vector}} 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file Vector.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vector}{Vector}}(x * scalar, y * scalar); \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_vector_8h}{Vector.\+h}}\end{DoxyCompactItemize}

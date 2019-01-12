@@ -1,0 +1,11 @@
+digraph "Updateable"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="Updateable",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="interface for updateable objects"];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="Triangle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_triangle.html",tooltip="represents a triangle that falls from the top of the display to the bottom"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Trunk",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_trunk.html",tooltip="represents an elogating line from Point start to Point end in total_time"];
+}

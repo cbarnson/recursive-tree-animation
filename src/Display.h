@@ -1,3 +1,12 @@
+/**
+ * @file Display.h
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @version 0.1
+ * @date 2019-01-11
+ *
+ * @copyright Copyright (c) 2019
+ *
+ */
 #ifndef __DISPLAY_H
 #define __DISPLAY_H
 

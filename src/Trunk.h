@@ -1,13 +1,13 @@
 /**
  * @file Trunk.h
- * @brief definition of the Trunk class
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @brief Trunk of the tree object.
+ * @version 0.1
+ * @date 2019-01-11
  *
- * This class inherits the public members of Drawable and Updateable interfaces
+ * @copyright Copyright (c) 2019
  *
- * @author Cody Barnson
- * @bug No known bugs
  */
-
 #ifndef TRUNK_H
 #define TRUNK_H
 
@@ -88,7 +88,8 @@ class Trunk : public Drawable, public Updateable {
 
  public:
   /**
-   * @fn Trunk(p1, p2, time, bf, a, rd)
+
+
    * @brief Constructor
    *
    * Point current is initalized to Point start
@@ -110,7 +111,6 @@ class Trunk : public Drawable, public Updateable {
   }
 
   /**
-   * @fn void addBranch()
    * @brief called when Point current has reached one third of the distance from
    * start to end randomly chooses to add between 1-4 child Trunk objects to the
    * branch list
@@ -172,7 +172,8 @@ class Trunk : public Drawable, public Updateable {
   }
 
   /**
-   * @fn void draw()
+
+
    * @brief draws a straight line from start to current, then iteratively calls
    * draw on each of the child Trunk objects in the branch container
    */
@@ -187,7 +188,8 @@ class Trunk : public Drawable, public Updateable {
   }
 
   /**
-   * @fn void update(double dt)
+
+
    * @brief updates the position of current according to the Trunk objects
    * growth rate and time passed dt; updates the position of all the child Trunk
    * objects in the branch container;

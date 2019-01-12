@@ -1,11 +1,13 @@
 /**
  * @file main-line.cc
- * @brief
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @brief Program entry for the "tree" program.
+ * @version 0.1
+ * @date 2019-01-11
  *
- * @author Cody Barnson
- * @bug No known bugs
+ * @copyright Copyright (c) 2019
+ *
  */
-
 #include <ctime>
 #include <memory>
 

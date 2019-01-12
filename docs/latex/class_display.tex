@@ -1,0 +1,172 @@
+\hypertarget{class_display}{}\section{Display Class Reference}
+\label{class_display}\index{Display@{Display}}
+
+
+Class to initialize allegro and open the main window.  
+
+
+
+
+{\ttfamily \#include $<$Display.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_display_a0b933deaf4610198cbc5f89097cb077b}{Display}} (int w=800, int h=600)
+\begin{DoxyCompactList}\small\item\em Initializes allegro and constructs a window of given size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_display_ac2607a6bb236c55547a4223d40d85d1f}{$\sim$\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Frees allegro resources. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_display_a246593e6e7d4e634e9c638525e103b6e}{getW}} () const
+\begin{DoxyCompactList}\small\item\em Returns the width of the window. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_display_a5faae23c211bed34aca048b98e2b9e81}{getH}} () const
+\begin{DoxyCompactList}\small\item\em Returns the height of the window. \end{DoxyCompactList}\item 
+A\+L\+L\+E\+G\+R\+O\+\_\+\+D\+I\+S\+P\+L\+AY $\ast$ \mbox{\hyperlink{class_display_a800ce141e803ab23b029a6638860ab51}{get\+Allegro\+Display}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Allegro display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to initialize allegro and open the main window. 
+
+Class \mbox{\hyperlink{class_display}{Display}} initializes allegro and the primitives add-\/on in the constructor. A single object must be instantiated prior to attempting any kind of drawing. The instantiated object can be used to retrieve the dimensions of the window. 
+
+Definition at line 22 of file Display.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_display_a0b933deaf4610198cbc5f89097cb077b}\label{class_display_a0b933deaf4610198cbc5f89097cb077b}} 
+\index{Display@{Display}!Display@{Display}}
+\index{Display@{Display}!Display@{Display}}
+\subsubsection{\texorpdfstring{Display()}{Display()}}
+{\footnotesize\ttfamily Display\+::\+Display (\begin{DoxyParamCaption}\item[{int}]{w = {\ttfamily 800},  }\item[{int}]{h = {\ttfamily 600} }\end{DoxyParamCaption})}
+
+
+
+Initializes allegro and constructs a window of given size. 
+
+Construct a new \mbox{\hyperlink{class_display}{Display}}\+:\+: \mbox{\hyperlink{class_display}{Display}} object.
+
+Exactly one object must be created before any allegro functions can be used. Both allegro and the primitives add-\/on (for drawing) are initialized, and a window is displayed. 
+\begin{DoxyParams}{Parameters}
+{\em w} & the width of the window displayed in pixels \\
+\hline
+{\em h} & the height of the window displayed in pixels\\
+\hline
+{\em w} & width of the display window \\
+\hline
+{\em h} & height of the display window \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file Display.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                              \{}
+\DoxyCodeLine{24   width = w;}
+\DoxyCodeLine{25   height = h;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   al\_init();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{comment}{// if the display cannot be initialized, we should throw an}}
+\DoxyCodeLine{30   \textcolor{comment}{// exception. We will deal with exceptons later in the course, so}}
+\DoxyCodeLine{31   \textcolor{comment}{// for now, we simply exit}}
+\DoxyCodeLine{32   \textcolor{keywordflow}{if} ((display = al\_create\_display(width, height)) == NULL) \{}
+\DoxyCodeLine{33     std::cerr << \textcolor{stringliteral}{"Cannot initialize the display"} << std::endl;}
+\DoxyCodeLine{34     exit(1);  \textcolor{comment}{// non-zero argument means "trouble"}}
+\DoxyCodeLine{35   \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   al\_init\_primitives\_addon();}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_display_ac2607a6bb236c55547a4223d40d85d1f}\label{class_display_ac2607a6bb236c55547a4223d40d85d1f}} 
+\index{Display@{Display}!````~Display@{$\sim$Display}}
+\index{````~Display@{$\sim$Display}!Display@{Display}}
+\subsubsection{\texorpdfstring{$\sim$Display()}{~Display()}}
+{\footnotesize\ttfamily Display\+::$\sim$\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Frees allegro resources. 
+
+Destroy the \mbox{\hyperlink{class_display}{Display}}\+:\+: \mbox{\hyperlink{class_display}{Display}} object.
+
+The allegro window is closed and the allegro resources are freed. Drawing is not possible afterwards.
+
+Definition at line 44 of file Display.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                   \{}
+\DoxyCodeLine{45   al\_destroy\_display(display);}
+\DoxyCodeLine{46 \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_display_a800ce141e803ab23b029a6638860ab51}\label{class_display_a800ce141e803ab23b029a6638860ab51}} 
+\index{Display@{Display}!getAllegroDisplay@{getAllegroDisplay}}
+\index{getAllegroDisplay@{getAllegroDisplay}!Display@{Display}}
+\subsubsection{\texorpdfstring{getAllegroDisplay()}{getAllegroDisplay()}}
+{\footnotesize\ttfamily A\+L\+L\+E\+G\+R\+O\+\_\+\+D\+I\+S\+P\+L\+AY$\ast$ Display\+::get\+Allegro\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the Allegro display. 
+
+\textbackslash{}ret a pointer to the Allegro display structure that can be passed to allegro functions requiring an Allegro display argument 
+
+Definition at line 61 of file Display.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61 \{ \textcolor{keywordflow}{return} display; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_display_a5faae23c211bed34aca048b98e2b9e81}\label{class_display_a5faae23c211bed34aca048b98e2b9e81}} 
+\index{Display@{Display}!getH@{getH}}
+\index{getH@{getH}!Display@{Display}}
+\subsubsection{\texorpdfstring{getH()}{getH()}}
+{\footnotesize\ttfamily int Display\+::getH (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the height of the window. 
+
+\textbackslash{}ret the height of the window in pixels 
+
+Definition at line 54 of file Display.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54 \{ \textcolor{keywordflow}{return} height; \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_display_a246593e6e7d4e634e9c638525e103b6e}\label{class_display_a246593e6e7d4e634e9c638525e103b6e}} 
+\index{Display@{Display}!getW@{getW}}
+\index{getW@{getW}!Display@{Display}}
+\subsubsection{\texorpdfstring{getW()}{getW()}}
+{\footnotesize\ttfamily int Display\+::getW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the width of the window. 
+
+\textbackslash{}ret the width of the window in pixels 
+
+Definition at line 48 of file Display.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48 \{ \textcolor{keywordflow}{return} width; \};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_display_8h}{Display.\+h}}\item 
+src/\mbox{\hyperlink{_display_8cc}{Display.\+cc}}\end{DoxyCompactItemize}

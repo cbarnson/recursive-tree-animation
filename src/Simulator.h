@@ -1,11 +1,23 @@
+/**
+ * @file Simulator.h
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @version 0.1
+ * @date 2019-01-11
+ *
+ * @copyright Copyright (c) 2019
+ *
+ */
 #ifndef __SIMULATOR_H
 #define __SIMULATOR_H
 
 #include <allegro5/allegro.h>
 #include "Display.h"
 
-/// Class responsible for setting up the Allegro library for some basic
-/// animation.
+/**
+ * @brief Simulator object.  Sets up Allegro library, and runs the main
+ * simulation loop.
+ *
+ */
 class Simulator {
  private:
   int framesPerSec;  /// the rendering frequency
@@ -14,44 +26,39 @@ class Simulator {
   ALLEGRO_EVENT_QUEUE *eventQueue;  /// event storage
 
  public:
-  /// The constructor initializes the Allegro library
   /**
-           \param d the display object; needed so that the Simulator object
-           recognizes when the "close window" button is pressed and the
-           simulation needs to stop.
-           \param fps the number of frames per second. This is the rate at
-           which both the simulation and the rendering are performed.
-   **/
+   * @brief Construct a new Simulator object, and initialize the Allegro
+   * library.
+   *
+   * @param d Display object.
+   * @param fps Frames per second.
+   */
   Simulator(const Display &d, int fps);
 
-  /// The destructor frees all the Allegro resources allocated by the
-  /// constructor
+  /**
+   * @brief Destroy the Simulator object, free all Allegro resources allocated
+   * by constructor.
+   *
+   */
   ~Simulator();
 
-  /// the rendering loop
   /**
-           Must be invoked to start the simulation. The function exits when
-           the user closes the display window
-   **/
+   * @brief Invoke to begin the simulation.  Main rendering loop.
+   *
+   */
   void run();
 
-  /// called whenever the state of the objects need updating.
   /**
-           Subclass and provide an implementation for this function that
-           specifies how the model used in the simulation is updated. It
-           is called by run().
-           \param dt is the time in seconds since the most recent
-           model update. The model needs to be changed to a state that
-           reflects the passing of dt seconds after the current state. It is
-           possible that dt is zero or negative.
-   **/
+   * @brief Updates the state of the objects in the model.
+   *
+   * @param dt Change in time, in seconds, since last update.
+   */
   virtual void updateModel(double dt) = 0;
 
-  /// called whenever the model needs to be displayed.
   /**
-           Subclass and provide an implementation for this function that
-           cntains the drawing code.
-   **/
+   * @brief Draws the model to the display.
+   *
+   */
   virtual void drawModel() = 0;
 };
 

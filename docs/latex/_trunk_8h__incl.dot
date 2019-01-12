@@ -1,0 +1,32 @@
+digraph "src/Trunk.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="src/Trunk.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="definition of the Trunk class"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="cmath",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ctime",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node0 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="list",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node0 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="memory",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node0 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node0 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="allegro5/allegro_primitives.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node0 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Drawable.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_drawable_8h.html",tooltip="Definition of the Drawable abstract class."];
+  Node0 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Line.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_line_8h.html",tooltip="Definition of the Line class."];
+  Node8 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Point.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_point_8h.html",tooltip="Definition of the Point struct."];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Vector.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_vector_8h.html",tooltip="Definition of the Vector class."];
+  Node0 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node0 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="Updateable.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_updateable_8h.html",tooltip="Definition of the Updateable abstract class."];
+  Node0 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+}

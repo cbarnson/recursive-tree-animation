@@ -1,14 +1,13 @@
 /**
  * @file Line.h
- * @brief Definition of the Line class
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @brief Represents a straight line in 2D.
+ * @version 0.1
+ * @date 2019-01-11
  *
- * This class uses two Point objects to represent a straight line with a certain
- * slope
+ * @copyright Copyright (c) 2019
  *
- * @author Cody Barnsonn
- * @bug No known bugs
  */
-
 #ifndef _LINE
 #define _LINE
 
@@ -37,7 +36,7 @@ struct _line {
   _line(Point a, Point b) : _start(a), _end(b){};
 
   /**
-   * @fn length()
+
    * @brief finds the scalar distance between the two points
    * @param none
    * @return value of type double
@@ -47,7 +46,7 @@ struct _line {
   }
 
   /**
-   * @fn get_angle_ccw(double change_in_angle)
+
    * @brief calculates the new angle (in radians)
    * @param change_in_angle the change in angle (added; counter-clockwise
    * change)
@@ -58,7 +57,7 @@ struct _line {
   }
 
   /**
-   * @fn get_angle_cw(double change_in_angle)
+
    * @brief calculates the new angle (in radians)
    * @param change_in_angle the change in angle (subtracted; clockwise change)
    * @return double value representing radians in the range [-PI, PI]
@@ -68,7 +67,7 @@ struct _line {
   }
 
   /**
-   * @fn get_endpoint_ccw(double change_in_angle, double new_length)
+
    * @brief calculates the position of the endpoint for the new line with some
    * change in angle
    * @param change_in_angle the change in angle (radians)
@@ -82,7 +81,7 @@ struct _line {
   }
 
   /**
-   * @fn get_endpoint_cw(double change_in_angle, double new_length)
+
    * @brief calculates the position of the endpoint for the new line with some
    * change in angle
    * @param change_in_angle the change in angle (radians)

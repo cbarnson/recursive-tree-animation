@@ -1,0 +1,223 @@
+\hypertarget{struct__line}{}\section{\+\_\+line Struct Reference}
+\label{struct__line}\index{\_line@{\_line}}
+
+
+represents a straight line from the \mbox{\hyperlink{struct_point}{Point}} object \+\_\+start to the \mbox{\hyperlink{struct_point}{Point}} object \+\_\+end with a certain slope  
+
+
+
+
+{\ttfamily \#include $<$Line.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct__line_a016cc0785a680ccea5824cd8e6a19a68}\label{struct__line_a016cc0785a680ccea5824cd8e6a19a68}} 
+{\bfseries \+\_\+line} (\mbox{\hyperlink{struct_point}{Point}} a, \mbox{\hyperlink{struct_point}{Point}} b)
+\item 
+double \mbox{\hyperlink{struct__line_a1438b816e0c4c3fa952d7e2ebda2b1a4}{length}} ()
+\begin{DoxyCompactList}\small\item\em finds the scalar distance between the two points \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__line_ae7c7e02e80626dd3ef066c5bd4e57f33}{get\+\_\+angle\+\_\+ccw}} (double change\+\_\+in\+\_\+angle)
+\begin{DoxyCompactList}\small\item\em calculates the new angle (in radians) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__line_a553d4c8e729337a21badab0c8d0f0a99}{get\+\_\+angle\+\_\+cw}} (double change\+\_\+in\+\_\+angle)
+\begin{DoxyCompactList}\small\item\em calculates the new angle (in radians) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_point}{Point}} \mbox{\hyperlink{struct__line_a3bb1fb1d6a0577adc3093e37929fd2a9}{get\+\_\+endpoint\+\_\+ccw}} (double change\+\_\+in\+\_\+angle, double new\+\_\+length)
+\begin{DoxyCompactList}\small\item\em calculates the position of the endpoint for the new line with some change in angle \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_point}{Point}} \mbox{\hyperlink{struct__line_ac8b12b24b4b86bd4d8c09476d5b7efed}{get\+\_\+endpoint\+\_\+cw}} (double change\+\_\+in\+\_\+angle, double new\+\_\+length)
+\begin{DoxyCompactList}\small\item\em calculates the position of the endpoint for the new line with some change in angle \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_point}{Point}} \mbox{\hyperlink{struct__line_a21249c64d9d4f9818059a9c99943df4b}{\+\_\+start}}
+\item 
+\mbox{\hyperlink{struct_point}{Point}} \mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\+\_\+end}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+represents a straight line from the \mbox{\hyperlink{struct_point}{Point}} object \+\_\+start to the \mbox{\hyperlink{struct_point}{Point}} object \+\_\+end with a certain slope 
+
+Definition at line 26 of file Line.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct__line_ae7c7e02e80626dd3ef066c5bd4e57f33}\label{struct__line_ae7c7e02e80626dd3ef066c5bd4e57f33}} 
+\index{\_line@{\_line}!get\_angle\_ccw@{get\_angle\_ccw}}
+\index{get\_angle\_ccw@{get\_angle\_ccw}!\_line@{\_line}}
+\subsubsection{\texorpdfstring{get\_angle\_ccw()}{get\_angle\_ccw()}}
+{\footnotesize\ttfamily double \+\_\+line\+::get\+\_\+angle\+\_\+ccw (\begin{DoxyParamCaption}\item[{double}]{change\+\_\+in\+\_\+angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+calculates the new angle (in radians) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em change\+\_\+in\+\_\+angle} & the change in angle (added; counter-\/clockwise change) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double value representing radians in the range \mbox{[}-\/PI, PI\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Line.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                                \{}
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} -(atan2(\mbox{\hyperlink{struct__line_a21249c64d9d4f9818059a9c99943df4b}{\_start}}.y - \mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.y, \mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.x - \mbox{\hyperlink{struct__line_a21249c64d9d4f9818059a9c99943df4b}{\_start}}.x) + change\_in\_angle);}
+\DoxyCodeLine{57   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct__line_a553d4c8e729337a21badab0c8d0f0a99}\label{struct__line_a553d4c8e729337a21badab0c8d0f0a99}} 
+\index{\_line@{\_line}!get\_angle\_cw@{get\_angle\_cw}}
+\index{get\_angle\_cw@{get\_angle\_cw}!\_line@{\_line}}
+\subsubsection{\texorpdfstring{get\_angle\_cw()}{get\_angle\_cw()}}
+{\footnotesize\ttfamily double \+\_\+line\+::get\+\_\+angle\+\_\+cw (\begin{DoxyParamCaption}\item[{double}]{change\+\_\+in\+\_\+angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+calculates the new angle (in radians) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em change\+\_\+in\+\_\+angle} & the change in angle (subtracted; clockwise change) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double value representing radians in the range \mbox{[}-\/PI, PI\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file Line.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                                               \{}
+\DoxyCodeLine{66     \textcolor{keywordflow}{return} -(atan2(\mbox{\hyperlink{struct__line_a21249c64d9d4f9818059a9c99943df4b}{\_start}}.y - \mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.y, \mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.x - \mbox{\hyperlink{struct__line_a21249c64d9d4f9818059a9c99943df4b}{\_start}}.x) - change\_in\_angle);}
+\DoxyCodeLine{67   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct__line_a3bb1fb1d6a0577adc3093e37929fd2a9}\label{struct__line_a3bb1fb1d6a0577adc3093e37929fd2a9}} 
+\index{\_line@{\_line}!get\_endpoint\_ccw@{get\_endpoint\_ccw}}
+\index{get\_endpoint\_ccw@{get\_endpoint\_ccw}!\_line@{\_line}}
+\subsubsection{\texorpdfstring{get\_endpoint\_ccw()}{get\_endpoint\_ccw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_point}{Point}} \+\_\+line\+::get\+\_\+endpoint\+\_\+ccw (\begin{DoxyParamCaption}\item[{double}]{change\+\_\+in\+\_\+angle,  }\item[{double}]{new\+\_\+length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+calculates the position of the endpoint for the new line with some change in angle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em change\+\_\+in\+\_\+angle} & the change in angle (radians) \\
+\hline
+{\em new\+\_\+length} & the straight line distance from start to end for the new line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_point}{Point}} object 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file Line.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                                                                     \{}
+\DoxyCodeLine{79     \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_point}{Point}}(\mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.x - new\_length * cos(\mbox{\hyperlink{struct__line_ae7c7e02e80626dd3ef066c5bd4e57f33}{get\_angle\_ccw}}(change\_in\_angle)),}
+\DoxyCodeLine{80                  \mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.y - new\_length * sin(\mbox{\hyperlink{struct__line_ae7c7e02e80626dd3ef066c5bd4e57f33}{get\_angle\_ccw}}(change\_in\_angle)));}
+\DoxyCodeLine{81   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct__line_ac8b12b24b4b86bd4d8c09476d5b7efed}\label{struct__line_ac8b12b24b4b86bd4d8c09476d5b7efed}} 
+\index{\_line@{\_line}!get\_endpoint\_cw@{get\_endpoint\_cw}}
+\index{get\_endpoint\_cw@{get\_endpoint\_cw}!\_line@{\_line}}
+\subsubsection{\texorpdfstring{get\_endpoint\_cw()}{get\_endpoint\_cw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_point}{Point}} \+\_\+line\+::get\+\_\+endpoint\+\_\+cw (\begin{DoxyParamCaption}\item[{double}]{change\+\_\+in\+\_\+angle,  }\item[{double}]{new\+\_\+length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+calculates the position of the endpoint for the new line with some change in angle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em change\+\_\+in\+\_\+angle} & the change in angle (radians) \\
+\hline
+{\em new\+\_\+length} & the straight line distance from start to end for the new line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_point}{Point}} object 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Line.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                                    \{}
+\DoxyCodeLine{93     \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_point}{Point}}(\mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.x - new\_length * cos(\mbox{\hyperlink{struct__line_a553d4c8e729337a21badab0c8d0f0a99}{get\_angle\_cw}}(change\_in\_angle)),}
+\DoxyCodeLine{94                  \mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.y - new\_length * sin(\mbox{\hyperlink{struct__line_a553d4c8e729337a21badab0c8d0f0a99}{get\_angle\_cw}}(change\_in\_angle)));}
+\DoxyCodeLine{95   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct__line_a1438b816e0c4c3fa952d7e2ebda2b1a4}\label{struct__line_a1438b816e0c4c3fa952d7e2ebda2b1a4}} 
+\index{\_line@{\_line}!length@{length}}
+\index{length@{length}!\_line@{\_line}}
+\subsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily double \+\_\+line\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+finds the scalar distance between the two points 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of type double 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file Line.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                   \{}
+\DoxyCodeLine{45     \textcolor{keywordflow}{return} sqrt(pow(\mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.y - \mbox{\hyperlink{struct__line_a21249c64d9d4f9818059a9c99943df4b}{\_start}}.y, 2) + pow(\mbox{\hyperlink{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}{\_end}}.x - \mbox{\hyperlink{struct__line_a21249c64d9d4f9818059a9c99943df4b}{\_start}}.x, 2));}
+\DoxyCodeLine{46   \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}\label{struct__line_a081e0006fa57d07bfb8ef30b5056a58a}} 
+\index{\_line@{\_line}!\_end@{\_end}}
+\index{\_end@{\_end}!\_line@{\_line}}
+\subsubsection{\texorpdfstring{\_end}{\_end}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_point}{Point}} \+\_\+line\+::\+\_\+end}
+
+represents the end point 
+
+Definition at line 33 of file Line.\+h.
+
+\mbox{\Hypertarget{struct__line_a21249c64d9d4f9818059a9c99943df4b}\label{struct__line_a21249c64d9d4f9818059a9c99943df4b}} 
+\index{\_line@{\_line}!\_start@{\_start}}
+\index{\_start@{\_start}!\_line@{\_line}}
+\subsubsection{\texorpdfstring{\_start}{\_start}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_point}{Point}} \+\_\+line\+::\+\_\+start}
+
+represents the start point 
+
+Definition at line 33 of file Line.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_line_8h}{Line.\+h}}\end{DoxyCompactItemize}

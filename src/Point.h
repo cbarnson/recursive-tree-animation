@@ -1,14 +1,13 @@
 /**
  * @file Point.h
- * @brief Definition of the Point struct
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @brief Describes a position on a 2D grid.
+ * @version 0.1
+ * @date 2019-01-11
  *
- * This contains the public member variables of the Point struct
- * describes a position on a grid
+ * @copyright Copyright (c) 2019
  *
- * @author Cody Barnson
- * @bug No known bugs
  */
-
 #ifndef _POINT_H
 #define _POINT_H
 
@@ -22,14 +21,12 @@ struct Point {
   double x;
   double y;
   /**
-   * @fn Point(double a, double b)
    * @brief Constructor
    * @param
    */
   Point(double a = 0.0, double b = 0.0) : x(a), y(b){};
 
   /**
-   * @fn Point operator + (Vector v)
    * @brief adds the value of member x of v to this objects member x, and
    * adds the value of member y of v to this objects member y
    * @param v represents the change in position for this Point object

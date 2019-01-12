@@ -1,0 +1,127 @@
+\hypertarget{classmy_simulator}{}\section{my\+Simulator Class Reference}
+\label{classmy_simulator}\index{mySimulator@{mySimulator}}
+
+
+contains lists of \mbox{\hyperlink{class_drawable}{Drawable}} objects and \mbox{\hyperlink{class_updateable}{Updateable}} objects and calls draw and update for their derived objects respectively  
+
+
+
+
+{\ttfamily \#include $<$my\+Simulator.\+h$>$}
+
+Inheritance diagram for my\+Simulator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmy_simulator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_simulator_a756a7394a4aecd757bb85345e282efe9}\label{classmy_simulator_a756a7394a4aecd757bb85345e282efe9}} 
+\mbox{\hyperlink{classmy_simulator_a756a7394a4aecd757bb85345e282efe9}{my\+Simulator}} (const \mbox{\hyperlink{class_display}{Display}} \&d, int fps)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmy_simulator_ab125b77ddb3b0615354f7140f8db56ba}{add\+Drawable}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_drawable}{Drawable}} $>$ p)
+\begin{DoxyCompactList}\small\item\em takes a smart pointer to \mbox{\hyperlink{class_drawable}{Drawable}} object and pushes it onto the to\+Draw list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmy_simulator_a92fb2a63bb35e90f9980be016f75b1bf}{add\+Updateable}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_updateable}{Updateable}} $>$ p)
+\begin{DoxyCompactList}\small\item\em takes a pointer to \mbox{\hyperlink{class_updateable}{Updateable}} object and pushes it onto the to Update list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmy_simulator_a76beefaa645d7785578a59b9f9d41dc9}{update\+Model}} (double dt)
+\begin{DoxyCompactList}\small\item\em takes some amount of time dt and calls each \mbox{\hyperlink{class_updateable}{Updateable}} object\textquotesingle{}s update function \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmy_simulator_a6750776d452448e55ab0bfa130e67437}\label{classmy_simulator_a6750776d452448e55ab0bfa130e67437}} 
+void \mbox{\hyperlink{classmy_simulator_a6750776d452448e55ab0bfa130e67437}{draw\+Model}} ()
+\begin{DoxyCompactList}\small\item\em iteratively calls each \mbox{\hyperlink{class_drawable}{Drawable}} object\textquotesingle{}s draw function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains lists of \mbox{\hyperlink{class_drawable}{Drawable}} objects and \mbox{\hyperlink{class_updateable}{Updateable}} objects and calls draw and update for their derived objects respectively 
+
+Definition at line 28 of file my\+Simulator.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmy_simulator_ab125b77ddb3b0615354f7140f8db56ba}\label{classmy_simulator_ab125b77ddb3b0615354f7140f8db56ba}} 
+\index{mySimulator@{mySimulator}!addDrawable@{addDrawable}}
+\index{addDrawable@{addDrawable}!mySimulator@{mySimulator}}
+\subsubsection{\texorpdfstring{addDrawable()}{addDrawable()}}
+{\footnotesize\ttfamily void my\+Simulator\+::add\+Drawable (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_drawable}{Drawable}} $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+takes a smart pointer to \mbox{\hyperlink{class_drawable}{Drawable}} object and pushes it onto the to\+Draw list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the pointer to the \mbox{\hyperlink{class_drawable}{Drawable}} object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 62 of file my\+Simulator.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{ toDraw.push\_back(p); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmy_simulator_a92fb2a63bb35e90f9980be016f75b1bf}\label{classmy_simulator_a92fb2a63bb35e90f9980be016f75b1bf}} 
+\index{mySimulator@{mySimulator}!addUpdateable@{addUpdateable}}
+\index{addUpdateable@{addUpdateable}!mySimulator@{mySimulator}}
+\subsubsection{\texorpdfstring{addUpdateable()}{addUpdateable()}}
+{\footnotesize\ttfamily void my\+Simulator\+::add\+Updateable (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_updateable}{Updateable}} $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+takes a pointer to \mbox{\hyperlink{class_updateable}{Updateable}} object and pushes it onto the to Update list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the pointer to the \mbox{\hyperlink{class_updateable}{Updateable}} object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file my\+Simulator.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \{ toUpdate.push\_back(p); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmy_simulator_a76beefaa645d7785578a59b9f9d41dc9}\label{classmy_simulator_a76beefaa645d7785578a59b9f9d41dc9}} 
+\index{mySimulator@{mySimulator}!updateModel@{updateModel}}
+\index{updateModel@{updateModel}!mySimulator@{mySimulator}}
+\subsubsection{\texorpdfstring{updateModel()}{updateModel()}}
+{\footnotesize\ttfamily void my\+Simulator\+::update\+Model (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+takes some amount of time dt and calls each \mbox{\hyperlink{class_updateable}{Updateable}} object\textquotesingle{}s update function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & the amount of time passed since the last update occurred \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_simulator_a78e300570318b9cd65f52b9547dee070}{Simulator}}.
+
+
+
+Definition at line 76 of file my\+Simulator.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                               \{}
+\DoxyCodeLine{77     \textcolor{keywordflow}{for} (std::list<std::shared\_ptr<Updateable>>::iterator it = toUpdate.begin();}
+\DoxyCodeLine{78          it != toUpdate.end(); ++it)}
+\DoxyCodeLine{79       (*it)->update(dt);}
+\DoxyCodeLine{80   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{my_simulator_8h}{my\+Simulator.\+h}}\end{DoxyCompactItemize}

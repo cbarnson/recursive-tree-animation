@@ -1,0 +1,187 @@
+\hypertarget{class_simulator}{}\section{Simulator Class Reference}
+\label{class_simulator}\index{Simulator@{Simulator}}
+
+
+{\ttfamily \#include $<$Simulator.\+h$>$}
+
+Inheritance diagram for Simulator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/dd1/class_simulator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_simulator_ac76c0369824f7d70f0d6cb98859d0b1d}{Simulator}} (const \mbox{\hyperlink{class_display}{Display}} \&d, int fps)
+\begin{DoxyCompactList}\small\item\em event storage \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_simulator_a0f49aa04f42060a785adf77346b9de9f}{$\sim$\+Simulator}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_simulator}{Simulator}}\+:\+: \mbox{\hyperlink{class_simulator}{Simulator}} object, and clean up resources for timer and event\+Queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simulator_aa2de7e32b04cc3e8fc60aec23997621b}{run}} ()
+\begin{DoxyCompactList}\small\item\em the rendering loop \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_simulator_a78e300570318b9cd65f52b9547dee070}{update\+Model}} (double dt)=0
+\begin{DoxyCompactList}\small\item\em called whenever the state of the objects need updating. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_simulator_ad47f95a2a5201a46f760c14d63d84725}{draw\+Model}} ()=0
+\begin{DoxyCompactList}\small\item\em called whenever the model needs to be displayed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class responsible for setting up the Allegro library for some basic animation. 
+
+Definition at line 9 of file Simulator.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_simulator_ac76c0369824f7d70f0d6cb98859d0b1d}\label{class_simulator_ac76c0369824f7d70f0d6cb98859d0b1d}} 
+\index{Simulator@{Simulator}!Simulator@{Simulator}}
+\index{Simulator@{Simulator}!Simulator@{Simulator}}
+\subsubsection{\texorpdfstring{Simulator()}{Simulator()}}
+{\footnotesize\ttfamily Simulator\+::\+Simulator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_display}{Display}} \&}]{d,  }\item[{int}]{fps }\end{DoxyParamCaption})}
+
+
+
+event storage 
+
+The constructor initializes the Allegro library 
+\begin{DoxyParams}{Parameters}
+{\em d} & the display object; needed so that the \mbox{\hyperlink{class_simulator}{Simulator}} object recognizes when the \char`\"{}close window\char`\"{} button is pressed and the simulation needs to stop. \\
+\hline
+{\em fps} & the number of frames per second. This is the rate at which both the simulation and the rendering are performed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file Simulator.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9     : framesPerSec(fps), timer(NULL), eventQueue(NULL) \{}
+\DoxyCodeLine{10   \textcolor{keywordflow}{if} ((timer = al\_create\_timer(1.0 / fps)) == NULL)}
+\DoxyCodeLine{11     \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"Cannot create allegro timer"});}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13   \textcolor{keywordflow}{if} ((eventQueue = al\_create\_event\_queue()) == NULL)}
+\DoxyCodeLine{14     \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"Cannot create event queue"});}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   al\_register\_event\_source(eventQueue,}
+\DoxyCodeLine{17                            al\_get\_display\_event\_source(d.\mbox{\hyperlink{class_display_a800ce141e803ab23b029a6638860ab51}{getAllegroDisplay}}()));}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19   al\_register\_event\_source(eventQueue, al\_get\_timer\_event\_source(timer));}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21   al\_start\_timer(timer);}
+\DoxyCodeLine{22 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_simulator_a0f49aa04f42060a785adf77346b9de9f}\label{class_simulator_a0f49aa04f42060a785adf77346b9de9f}} 
+\index{Simulator@{Simulator}!````~Simulator@{$\sim$Simulator}}
+\index{````~Simulator@{$\sim$Simulator}!Simulator@{Simulator}}
+\subsubsection{\texorpdfstring{$\sim$Simulator()}{~Simulator()}}
+{\footnotesize\ttfamily Simulator\+::$\sim$\+Simulator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_simulator}{Simulator}}\+:\+: \mbox{\hyperlink{class_simulator}{Simulator}} object, and clean up resources for timer and event\+Queue. 
+
+The destructor frees all the Allegro resources allocated by the constructor
+
+Definition at line 29 of file Simulator.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                       \{}
+\DoxyCodeLine{30   \textcolor{keywordflow}{if} (timer != NULL) al\_destroy\_timer(timer);}
+\DoxyCodeLine{31   \textcolor{keywordflow}{if} (eventQueue != NULL) al\_destroy\_event\_queue(eventQueue);}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_simulator_ad47f95a2a5201a46f760c14d63d84725}\label{class_simulator_ad47f95a2a5201a46f760c14d63d84725}} 
+\index{Simulator@{Simulator}!drawModel@{drawModel}}
+\index{drawModel@{drawModel}!Simulator@{Simulator}}
+\subsubsection{\texorpdfstring{drawModel()}{drawModel()}}
+{\footnotesize\ttfamily virtual void Simulator\+::draw\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+called whenever the model needs to be displayed. 
+
+Subclass and provide an implementation for this function that cntains the drawing code. 
+
+Implemented in \mbox{\hyperlink{classmy_simulator_a6750776d452448e55ab0bfa130e67437}{my\+Simulator}}.
+
+\mbox{\Hypertarget{class_simulator_aa2de7e32b04cc3e8fc60aec23997621b}\label{class_simulator_aa2de7e32b04cc3e8fc60aec23997621b}} 
+\index{Simulator@{Simulator}!run@{run}}
+\index{run@{run}!Simulator@{Simulator}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Simulator\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+the rendering loop 
+
+Test $(x_1, y_1) \times \frac{x_2}{y_2}$.
+
+Must be invoked to start the simulation. The function exits when the user closes the display window
+
+Definition at line 38 of file Simulator.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                     \{}
+\DoxyCodeLine{39   \textcolor{comment}{// switch to trigger model drawing}}
+\DoxyCodeLine{40   \textcolor{keywordtype}{bool} redraw = \textcolor{keyword}{true};}
+\DoxyCodeLine{41   \textcolor{comment}{// current time and previous time in seconds; needed so we can try}}
+\DoxyCodeLine{42   \textcolor{comment}{// to keep track of the passing of real time.}}
+\DoxyCodeLine{43   \textcolor{keywordtype}{double} currentTime, previousTime = 0;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keywordflow}{while} (1) \{}
+\DoxyCodeLine{46     ALLEGRO\_EVENT ev;}
+\DoxyCodeLine{47     al\_wait\_for\_event(eventQueue, \&ev);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{if} (ev.type == ALLEGRO\_EVENT\_TIMER) \{}
+\DoxyCodeLine{50       currentTime = al\_current\_time();}
+\DoxyCodeLine{51       \mbox{\hyperlink{class_simulator_a78e300570318b9cd65f52b9547dee070}{updateModel}}(currentTime - previousTime);}
+\DoxyCodeLine{52       previousTime = currentTime;}
+\DoxyCodeLine{53       \textcolor{comment}{// instead of simply calling drawModel() here, we set this flag so that}}
+\DoxyCodeLine{54       \textcolor{comment}{// we redraw only if the event queue is empty; reason: draw is}}
+\DoxyCodeLine{55       \textcolor{comment}{// expensive and we don't want to delay everything too much}}
+\DoxyCodeLine{56       redraw = \textcolor{keyword}{true};}
+\DoxyCodeLine{57     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ev.type == ALLEGRO\_EVENT\_DISPLAY\_CLOSE) \{}
+\DoxyCodeLine{58       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} (redraw \&\& al\_is\_event\_queue\_empty(eventQueue)) \{}
+\DoxyCodeLine{62       \mbox{\hyperlink{class_simulator_ad47f95a2a5201a46f760c14d63d84725}{drawModel}}();}
+\DoxyCodeLine{63       redraw = \textcolor{keyword}{false};}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65   \}}
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_simulator_a78e300570318b9cd65f52b9547dee070}\label{class_simulator_a78e300570318b9cd65f52b9547dee070}} 
+\index{Simulator@{Simulator}!updateModel@{updateModel}}
+\index{updateModel@{updateModel}!Simulator@{Simulator}}
+\subsubsection{\texorpdfstring{updateModel()}{updateModel()}}
+{\footnotesize\ttfamily virtual void Simulator\+::update\+Model (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+called whenever the state of the objects need updating. 
+
+Subclass and provide an implementation for this function that specifies how the model used in the simulation is updated. It is called by \mbox{\hyperlink{class_simulator_aa2de7e32b04cc3e8fc60aec23997621b}{run()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dt} & is the time in seconds since the most recent model update. The model needs to be changed to a state that reflects the passing of dt seconds after the current state. It is possible that dt is zero or negative. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classmy_simulator_a76beefaa645d7785578a59b9f9d41dc9}{my\+Simulator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Simulator.\+h\item 
+src/Simulator.\+cc\end{DoxyCompactItemize}

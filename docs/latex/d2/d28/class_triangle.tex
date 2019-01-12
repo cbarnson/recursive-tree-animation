@@ -1,0 +1,71 @@
+\hypertarget{class_triangle}{}\section{Triangle Class Reference}
+\label{class_triangle}\index{Triangle@{Triangle}}
+
+
+represents a triangle that falls from the top of the display to the bottom  
+
+
+
+
+{\ttfamily \#include $<$Triangle.\+h$>$}
+
+Inheritance diagram for Triangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/d28/class_triangle}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_triangle_afc6e6f7865d0dda26dd77682b2e29eeb}\label{class_triangle_afc6e6f7865d0dda26dd77682b2e29eeb}} 
+{\bfseries Triangle} (int x, int y)
+\item 
+\mbox{\Hypertarget{class_triangle_a43067ba4ee3c1d56930a567cc2186624}\label{class_triangle_a43067ba4ee3c1d56930a567cc2186624}} 
+void \mbox{\hyperlink{class_triangle_a43067ba4ee3c1d56930a567cc2186624}{draw}} ()
+\begin{DoxyCompactList}\small\item\em draws the triangle object to the display, if out of bounds returns to the top \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_triangle_a38658aaef09315379d75dd9a36456c0e}{update}} (double dt)
+\begin{DoxyCompactList}\small\item\em updates the position of the triangle\textquotesingle{}s pt parameter \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+represents a triangle that falls from the top of the display to the bottom 
+
+Definition at line 28 of file Triangle.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_triangle_a38658aaef09315379d75dd9a36456c0e}\label{class_triangle_a38658aaef09315379d75dd9a36456c0e}} 
+\index{Triangle@{Triangle}!update@{update}}
+\index{update@{update}!Triangle@{Triangle}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Triangle\+::update (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+updates the position of the triangle\textquotesingle{}s pt parameter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & the change in time (seconds) since the last update \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_updateable_abf62194ac6d4aca32b21817a0ac20331}{Updateable}}.
+
+
+
+Definition at line 73 of file Triangle.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \{ pt = pt + crtSpeed * dt; \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_triangle_8h}{Triangle.\+h}}\end{DoxyCompactItemize}

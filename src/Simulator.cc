@@ -1,3 +1,13 @@
+/**
+ * @file Simulator.cc
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @brief
+ * @version 0.1
+ * @date 2019-01-11
+ *
+ * @copyright Copyright (c) 2019
+ *
+ */
 #include "Simulator.h"
 
 #include <allegro5/allegro.h>
@@ -21,26 +31,34 @@ Simulator::Simulator(const Display &d, int fps)
   al_start_timer(timer);
 }
 
+/**
+ * @brief Destroy the Simulator:: Simulator object, and clean up resources for
+ * timer and eventQueue
+ *
+ */
 Simulator::~Simulator() {
   if (timer != NULL) al_destroy_timer(timer);
   if (eventQueue != NULL) al_destroy_event_queue(eventQueue);
 }
 
+/**
+ * @brief Run the simulator.
+ */
 void Simulator::run() {
   // switch to trigger model drawing
   bool redraw = true;
   // current time and previous time in seconds; needed so we can try
   // to keep track of the passing of real time.
-  double crtTime, prevTime = 0;
+  double currentTime, previousTime = 0;
 
   while (1) {
     ALLEGRO_EVENT ev;
     al_wait_for_event(eventQueue, &ev);
 
     if (ev.type == ALLEGRO_EVENT_TIMER) {
-      crtTime = al_current_time();
-      updateModel(crtTime - prevTime);
-      prevTime = crtTime;
+      currentTime = al_current_time();
+      updateModel(currentTime - previousTime);
+      previousTime = currentTime;
       // instead of simply calling drawModel() here, we set this flag so that
       // we redraw only if the event queue is empty; reason: draw is
       // expensive and we don't want to delay everything too much

@@ -1,11 +1,3 @@
-/**
- * @file Drawable.h
- * @brief Definition of the Drawable abstract class
- *
- * @author Cody Barnson
- * @bug no known bugs
- */
-
 #ifndef DRAWABLE_H
 #define DRAWABLE_H
 
@@ -18,7 +10,8 @@
 class Drawable {
  public:
   /**
-   * @fn virtual void draw()
+
+
    * @brief virtual function to draw derived objects
    */
   virtual void draw() = 0;

@@ -1,12 +1,13 @@
 /**
  * @file Triangle.h
- * @brief definition of the Triangle class
+ * @author C. Barnson (cbarnson@outlook.com)
+ * @brief Triangle represents a single triangle that moves from the top of the
+ * display to the bottom over time.
+ * @version 0.1
+ * @date 2019-01-11
  *
- * This class inherits the public members of the Drawable and Updateable
- * interfaces
+ * @copyright Copyright (c) 2019
  *
- * @author Cody Barnson
- * @bug no known bugs
  */
 
 #ifndef TRIANGLE_H
@@ -47,12 +48,17 @@ class Triangle : public Drawable, public Updateable {
   Vector crtSpeed;
 
  public:
+  /**
+   * @brief Construct a new Triangle object
+   *
+   * @param x Initial x-coordinate for the Triangle object.
+   * @param y Initial y-coordinate for the Triangle object.
+   */
   Triangle(int x, int y) : max_x(x), max_y(y), size(30), crtSpeed(0, 100) {
     pt = Point(rand() % x, rand() % y);
   }
 
   /**
-   * @fn void draw()
    * @brief draws the triangle object to the display, if out of bounds returns
    * to the top
    */
@@ -66,9 +72,10 @@ class Triangle : public Drawable, public Updateable {
   }
 
   /**
-   * @fn void update(double dt)
-   * @brief updates the position of the triangle's pt parameter
-   * @param dt the change in time (seconds) since the last update
+   * @brief Updates the triangle's position over time, i.e.  \f$pt = pt +
+   * crtSpeed * dt\f$.
+   *
+   * @param dt Change in time, in seconds, since last update.
    */
   void update(double dt) { pt = pt + crtSpeed * dt; }
 };

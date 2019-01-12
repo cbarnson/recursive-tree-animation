@@ -1,0 +1,196 @@
+\hypertarget{class_trunk}{}\section{Trunk Class Reference}
+\label{class_trunk}\index{Trunk@{Trunk}}
+
+
+represents an elogating line from \mbox{\hyperlink{struct_point}{Point}} start to \mbox{\hyperlink{struct_point}{Point}} end in total\+\_\+time  
+
+
+
+
+{\ttfamily \#include $<$Trunk.\+h$>$}
+
+Inheritance diagram for Trunk\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_trunk}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_trunk_a01d439d00e7e118af0f6e33626e773d1}{Trunk}} (\mbox{\hyperlink{struct_point}{Point}} p1, \mbox{\hyperlink{struct_point}{Point}} p2, double time, double bf, double a, int rd)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_trunk_a04d06f2095aeff41ae3413866c128b8a}{add\+Branch}} ()
+\begin{DoxyCompactList}\small\item\em called when \mbox{\hyperlink{struct_point}{Point}} current has reached one third of the distance from start to end randomly chooses to add between 1-\/4 child \mbox{\hyperlink{class_trunk}{Trunk}} objects to the branch list \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_trunk_a14013f7f50839be7274e7ea09991df39}\label{class_trunk_a14013f7f50839be7274e7ea09991df39}} 
+void \mbox{\hyperlink{class_trunk_a14013f7f50839be7274e7ea09991df39}{draw}} ()
+\begin{DoxyCompactList}\small\item\em draws a straight line from start to current, then iteratively calls draw on each of the child \mbox{\hyperlink{class_trunk}{Trunk}} objects in the branch container \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_trunk_ab62c99b7a3ad20b53d81b87afa91d28d}{update}} (double dt)
+\begin{DoxyCompactList}\small\item\em updates the position of current according to the \mbox{\hyperlink{class_trunk}{Trunk}} objects growth rate and time passed dt; updates the position of all the child \mbox{\hyperlink{class_trunk}{Trunk}} objects in the branch container; \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+represents an elogating line from \mbox{\hyperlink{struct_point}{Point}} start to \mbox{\hyperlink{struct_point}{Point}} end in total\+\_\+time 
+
+Definition at line 33 of file Trunk.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_trunk_a01d439d00e7e118af0f6e33626e773d1}\label{class_trunk_a01d439d00e7e118af0f6e33626e773d1}} 
+\index{Trunk@{Trunk}!Trunk@{Trunk}}
+\index{Trunk@{Trunk}!Trunk@{Trunk}}
+\subsubsection{\texorpdfstring{Trunk()}{Trunk()}}
+{\footnotesize\ttfamily Trunk\+::\+Trunk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{p1,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{p2,  }\item[{double}]{time,  }\item[{double}]{bf,  }\item[{double}]{a,  }\item[{int}]{rd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+\mbox{\hyperlink{struct_point}{Point}} current is initalized to \mbox{\hyperlink{struct_point}{Point}} start growth is initalized to the distance between start and end divided by the total time expanded is initalized to false 
+
+Definition at line 99 of file Trunk.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100       : start(p1),}
+\DoxyCodeLine{101         end(p2),}
+\DoxyCodeLine{102         total\_time(time),}
+\DoxyCodeLine{103         branch\_factor(bf),}
+\DoxyCodeLine{104         angle(a),}
+\DoxyCodeLine{105         rec\_depth(rd) \{}
+\DoxyCodeLine{106     current = start;}
+\DoxyCodeLine{107     L = sqrt(pow(end.y - start.y, 2) + pow(end.x - start.x, 2));}
+\DoxyCodeLine{108     growth =}
+\DoxyCodeLine{109         \mbox{\hyperlink{struct_vector}{Vector}}((end.x - start.x) / total\_time, (end.y - start.y) / total\_time);}
+\DoxyCodeLine{110     expanded = \textcolor{keyword}{false};}
+\DoxyCodeLine{111   \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_trunk_a04d06f2095aeff41ae3413866c128b8a}\label{class_trunk_a04d06f2095aeff41ae3413866c128b8a}} 
+\index{Trunk@{Trunk}!addBranch@{addBranch}}
+\index{addBranch@{addBranch}!Trunk@{Trunk}}
+\subsubsection{\texorpdfstring{addBranch()}{addBranch()}}
+{\footnotesize\ttfamily void Trunk\+::add\+Branch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+called when \mbox{\hyperlink{struct_point}{Point}} current has reached one third of the distance from start to end randomly chooses to add between 1-\/4 child \mbox{\hyperlink{class_trunk}{Trunk}} objects to the branch list 
+
+child \mbox{\hyperlink{class_trunk}{Trunk}} objects have the possibility to appear in 4 positions as follows\+: 1/3 of the max length, angled to the left 1/3 of the max length, angled to the right 1/6 of the max length, angled to the left 1/6 of the max length, angled to the right $<$ position 1 \+: @1/3 L, angled to left of trunk
+
+$<$ position 2 \+: @1/6 L, angled to the right of the trunk
+
+$<$ position 3 \+: @1/6 L, angled to the left of the trunk
+
+$<$ position 4 \+: @1/3 L, angled to right of trunk 
+
+Definition at line 123 of file Trunk.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123                    \{}
+\DoxyCodeLine{124     \mbox{\hyperlink{struct_point}{Point}} current\_2 = start + growth * (total\_time / 6);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \mbox{\hyperlink{struct_point}{Point}} end\_extended = end + growth * (total\_time / 3);}
+\DoxyCodeLine{127     \mbox{\hyperlink{struct_point}{Point}} end\_extended\_2 = end + growth * (total\_time / 6);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \mbox{\hyperlink{struct__line}{\_line}} end\_ext(current, end\_extended);}
+\DoxyCodeLine{130     \mbox{\hyperlink{struct__line}{\_line}} end\_ext\_2(current\_2, end\_extended\_2);}
+\DoxyCodeLine{131     \textcolor{keywordtype}{double} radians = angle * PI / 180.0;}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \mbox{\hyperlink{struct_point}{Point}} p;}
+\DoxyCodeLine{134     std::vector<Point> pts;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{137     p = \mbox{\hyperlink{struct_point}{Point}}(current.x, current.y);}
+\DoxyCodeLine{138     pts.push\_back(p);}
+\DoxyCodeLine{139     p = end\_ext.get\_endpoint\_ccw(radians, branch\_factor * L);}
+\DoxyCodeLine{140     pts.push\_back(p);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{143     p = \mbox{\hyperlink{struct_point}{Point}}((current.x + start.x) / 2, (current.y + start.y) / 2);}
+\DoxyCodeLine{144     pts.push\_back(p);}
+\DoxyCodeLine{145     p = end\_ext\_2.get\_endpoint\_cw(radians, branch\_factor * L);}
+\DoxyCodeLine{146     pts.push\_back(p);}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{149     p = \mbox{\hyperlink{struct_point}{Point}}((current.x + start.x) / 2, (current.y + start.y) / 2);}
+\DoxyCodeLine{150     pts.push\_back(p);}
+\DoxyCodeLine{151     p = end\_ext\_2.get\_endpoint\_ccw(radians, branch\_factor * L);}
+\DoxyCodeLine{152     pts.push\_back(p);}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{155     p = \mbox{\hyperlink{struct_point}{Point}}(current.x, current.y);}
+\DoxyCodeLine{156     pts.push\_back(p);}
+\DoxyCodeLine{157     p = end\_ext.get\_endpoint\_cw(radians, branch\_factor * L);}
+\DoxyCodeLine{158     pts.push\_back(p);}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keywordtype}{int} branch\_config = rand() \% 4 + 1;}
+\DoxyCodeLine{161     std::vector<Point>::iterator it1 = pts.begin();}
+\DoxyCodeLine{162     std::vector<Point>::iterator it2 = pts.begin() + 1;}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < branch\_config; i++) \{}
+\DoxyCodeLine{165       branch.push\_back(std::make\_shared<Trunk>(}
+\DoxyCodeLine{166           (*it1), (*it2), total\_time, branch\_factor, angle, rec\_depth - 1));}
+\DoxyCodeLine{167       ++it1;}
+\DoxyCodeLine{168       ++it1;}
+\DoxyCodeLine{169       ++it2;}
+\DoxyCodeLine{170       ++it2;}
+\DoxyCodeLine{171     \}}
+\DoxyCodeLine{172   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_trunk_ab62c99b7a3ad20b53d81b87afa91d28d}\label{class_trunk_ab62c99b7a3ad20b53d81b87afa91d28d}} 
+\index{Trunk@{Trunk}!update@{update}}
+\index{update@{update}!Trunk@{Trunk}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Trunk\+::update (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+updates the position of current according to the \mbox{\hyperlink{class_trunk}{Trunk}} objects growth rate and time passed dt; updates the position of all the child \mbox{\hyperlink{class_trunk}{Trunk}} objects in the branch container; 
+
+
+
+Implements \mbox{\hyperlink{class_updateable_aedd932b85972fac4f78d4612ff7468c1}{Updateable}}.
+
+
+
+Definition at line 198 of file Trunk.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{198                          \{}
+\DoxyCodeLine{199     \textcolor{keywordtype}{double} start\_to\_end =}
+\DoxyCodeLine{200         sqrt(pow(start.x - end.x, 2) + pow(start.y - end.y, 2));}
+\DoxyCodeLine{201     \textcolor{keywordtype}{double} start\_to\_current =}
+\DoxyCodeLine{202         sqrt(pow(start.x - current.x, 2) + pow(start.y - current.y, 2));}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \textcolor{keywordflow}{if} (start\_to\_current < start\_to\_end) \{}
+\DoxyCodeLine{205       current = current + growth * dt;}
+\DoxyCodeLine{206     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{207       current = end;}
+\DoxyCodeLine{208     \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{keywordflow}{if} (!branch.empty()) \{}
+\DoxyCodeLine{211       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = branch.begin(); it != branch.end(); ++it) \{}
+\DoxyCodeLine{212         (*it)->update(dt);}
+\DoxyCodeLine{213       \}}
+\DoxyCodeLine{214     \}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     \textcolor{keywordflow}{if} (!expanded \&\& rec\_depth > 0) \{}
+\DoxyCodeLine{217       start\_to\_current =}
+\DoxyCodeLine{218           sqrt(pow(start.x - current.x, 2) + pow(start.y - current.y, 2));}
+\DoxyCodeLine{219       \textcolor{keywordflow}{if} (start\_to\_current > (L / 3)) \{}
+\DoxyCodeLine{220         \mbox{\hyperlink{class_trunk_a04d06f2095aeff41ae3413866c128b8a}{addBranch}}();}
+\DoxyCodeLine{221         expanded = \textcolor{keyword}{true};}
+\DoxyCodeLine{222       \}}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_trunk_8h}{Trunk.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,101 @@
+\hypertarget{class_triangle}{}\section{Triangle Class Reference}
+\label{class_triangle}\index{Triangle@{Triangle}}
+
+
+represents a triangle that falls from the top of the display to the bottom  
+
+
+
+
+{\ttfamily \#include $<$Triangle.\+h$>$}
+
+Inheritance diagram for Triangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_triangle}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_triangle_afc6e6f7865d0dda26dd77682b2e29eeb}{Triangle}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_triangle}{Triangle}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_triangle_a43067ba4ee3c1d56930a567cc2186624}\label{class_triangle_a43067ba4ee3c1d56930a567cc2186624}} 
+void \mbox{\hyperlink{class_triangle_a43067ba4ee3c1d56930a567cc2186624}{draw}} ()
+\begin{DoxyCompactList}\small\item\em draws the triangle object to the display, if out of bounds returns to the top \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_triangle_a38658aaef09315379d75dd9a36456c0e}{update}} (double dt)
+\begin{DoxyCompactList}\small\item\em Updates the triangle\textquotesingle{}s position over time, i.\+e. $pt = pt + crtSpeed * dt$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+represents a triangle that falls from the top of the display to the bottom 
+
+Definition at line 29 of file Triangle.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_triangle_afc6e6f7865d0dda26dd77682b2e29eeb}\label{class_triangle_afc6e6f7865d0dda26dd77682b2e29eeb}} 
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\subsubsection{\texorpdfstring{Triangle()}{Triangle()}}
+{\footnotesize\ttfamily Triangle\+::\+Triangle (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_triangle}{Triangle}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Initial x-\/coordinate for the \mbox{\hyperlink{class_triangle}{Triangle}} object. \\
+\hline
+{\em y} & Initial y-\/coordinate for the \mbox{\hyperlink{class_triangle}{Triangle}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 57 of file Triangle.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57                          : max\_x(x), max\_y(y), size(30), crtSpeed(0, 100) \{}
+\DoxyCodeLine{58     pt = \mbox{\hyperlink{struct_point}{Point}}(rand() \% x, rand() \% y);}
+\DoxyCodeLine{59   \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_triangle_a38658aaef09315379d75dd9a36456c0e}\label{class_triangle_a38658aaef09315379d75dd9a36456c0e}} 
+\index{Triangle@{Triangle}!update@{update}}
+\index{update@{update}!Triangle@{Triangle}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Triangle\+::update (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Updates the triangle\textquotesingle{}s position over time, i.\+e. $pt = pt + crtSpeed * dt$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Change in time, in seconds, since last update. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_updateable_aedd932b85972fac4f78d4612ff7468c1}{Updateable}}.
+
+
+
+Definition at line 80 of file Triangle.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \{ pt = pt + crtSpeed * dt; \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_triangle_8h}{Triangle.\+h}}\end{DoxyCompactItemize}

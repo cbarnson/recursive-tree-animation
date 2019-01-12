@@ -1,0 +1,96 @@
+\hypertarget{struct_point}{}\section{Point Struct Reference}
+\label{struct_point}\index{Point@{Point}}
+
+
+represents a position on the display (grid)  
+
+
+
+
+{\ttfamily \#include $<$Point.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_point_ad426ece2a678805f7f2b9e6e0bfa33d3}{Point}} (double a=0.\+0, double b=0.\+0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_point}{Point}} \mbox{\hyperlink{struct_point_a863eb9e840f8a70ab262f57dd5012f9e}{operator+}} (\mbox{\hyperlink{struct_vector}{Vector}} v)
+\begin{DoxyCompactList}\small\item\em adds the value of member x of v to this objects member x, and adds the value of member y of v to this objects member y \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_point_ab99c56589bc8ad5fa5071387110a5bc7}\label{struct_point_ab99c56589bc8ad5fa5071387110a5bc7}} 
+double {\bfseries x}
+\item 
+\mbox{\Hypertarget{struct_point_afa38be143ae800e6ad69ce8ed4df62d8}\label{struct_point_afa38be143ae800e6ad69ce8ed4df62d8}} 
+double {\bfseries y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+represents a position on the display (grid) 
+
+Definition at line 21 of file Point.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_point_ad426ece2a678805f7f2b9e6e0bfa33d3}\label{struct_point_ad426ece2a678805f7f2b9e6e0bfa33d3}} 
+\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\subsubsection{\texorpdfstring{Point()}{Point()}}
+{\footnotesize\ttfamily Point\+::\+Point (\begin{DoxyParamCaption}\item[{double}]{a = {\ttfamily 0.0},  }\item[{double}]{b = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file Point.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 : x(a), y(b)\{\};}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_point_a863eb9e840f8a70ab262f57dd5012f9e}\label{struct_point_a863eb9e840f8a70ab262f57dd5012f9e}} 
+\index{Point@{Point}!operator+@{operator+}}
+\index{operator+@{operator+}!Point@{Point}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_point}{Point}} Point\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector}{Vector}}}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+adds the value of member x of v to this objects member x, and adds the value of member y of v to this objects member y 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & represents the change in position for this \mbox{\hyperlink{struct_point}{Point}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_point}{Point}} 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file Point.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_point_ad426ece2a678805f7f2b9e6e0bfa33d3}{Point}}(x + v.x, y + v.y); \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_point_8h}{Point.\+h}}\end{DoxyCompactItemize}
